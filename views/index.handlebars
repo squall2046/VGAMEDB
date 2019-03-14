@@ -1,0 +1,109 @@
+<!-- ======================================= Nav ======================================= -->
+<div class="container">
+    {{!-- <div class="main" style="position: fixed; top: 0; width: 100%; height: 160px; padding: 0 100px; background-color: white; z-index: 2;"> --}}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="home">
+                <a href="/" class="header" style="text-decoration:none">vGame DB </a>
+                <a href="/favorite" class="btn btn-primary" id="favPgBtn">favorite</a>
+            </div>
+            <div class="searchGame">
+                <input class="input" id="inputGame" type="text" placeholder="  Game Name">
+                <button class="btn btn-sm btn-primary" id="searchBtn"><i class="fa fa-search"></i></button>
+                <div class="searchRes" data-show="false">
+                    <!-- search result pop-up here -->
+                </div>
+            </div>
+
+
+            <!-- bootstrap pagination -->
+            <nav aria-label="">
+                <ul class="pagination">
+                    <li class="page-item" id="previous-page">
+                        <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="userStatus">Welcome
+                {{#each user}}
+                <span id="userName"></span>
+                {{/each}}
+                <a data-toggle="collapse" href="#userEdit"><img id="userImg" src="/css/true.jpg"></a>
+                <div class="collapse" id="userEdit">
+                    <div id="changePass">Change Password</div>
+                    <div id="logOut">Log Out</div>
+                </div>
+            </div>
+            <div class="searchBy">
+                <form class="orderForm">
+                    <select class="select" name="games" id="gameOrder">
+                        <option value="">&nbsp;Order by</option>
+                        <option value="yd">Year Desc</option>
+                        <option value="ya">Year Asc</option>
+                        <option value="sd">Sales Desc</option>
+                        <option value="sa">Sales Asc</option>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-success" id="orderBtn">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+
+                <form class="sortForm">
+                    <select class="select" name="games" id="platform">
+                        <option value="">&nbsp;Platforms</option>
+                        <option value="ps4">ps4</option>
+                        <option value="xb1">XBox</option>
+                        <option value="wiiu">WiiU</option>
+                        <option value="3ds">3DS</option>
+                    </select>
+                    <select class="select" name="games" id="genre">
+                        <option value="">&nbsp;Genres</option>
+                        <option value="act">Action</option>
+                        <option value="rpg">RPG</option>
+                        <option value="spt">Sport</option>
+                        <option value="sht">Shooters</option>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-success" id="sortBtn">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ======================================= Body ======================================= -->
+<section class="section" id="page">
+    {{!-- <section class="section" id="page" style="position: relative; margin-top:200px"> --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 m-auto">
+                {{#each game}}
+                <div class="list-group col-lg-2 col-md-3 col-12" id="gameCard">
+                    <div class="transition">
+                        <h4>{{this.Name}}</h4>
+                        <div>Year of Release: {{this.Year_of_Release}}</div>
+                        <div>Genre: {{this.Genre}}</div>
+                        <div>Platform: {{this.Platform}}</div>
+                        <br><br><br><br><br>
+                    </div>
+                    <button class="favBtn btn-danger" data-gameId="{{this.id}}" data-favSta="{{this.isFav}}">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <a href="/card/id/{{this.id}}" class="cardBtn" style="text-decoration:none">More Details</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <a href="/" class="btn btn-primary" style="margin-left: 47%">Home</a>
+</section>
+
+<!-- ======================================= footer ======================================= -->
+<footer>
+    <div>Copyright &copy; 2019</div>
+</footer>

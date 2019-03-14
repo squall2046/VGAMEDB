@@ -1,0 +1,78 @@
+<!-- ======================================= login ======================================= -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="home">
+                <div class="header" style="text-decoration:none">vGame DB </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 auth">
+            <div class="signUp">
+                <h3> Sign Up </h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nameInput">User ID</label>
+                        <input type="text" class="form-control" id="nameInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="passInput">Password</label>
+                        <input type="text" class="form-control" id="passInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="passConfirm">Confirm Password</label>
+                        <input type="text" class="form-control" id="passConfirm">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="signUpBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6 auth">
+            <div class="signIn">
+                <h3> Log In </h3>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">User ID</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="logInBtn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ======================================= footer ======================================= -->
+<footer>
+    <div>Copyright &copy; 2019</div>
+</footer>
+
+<!-- ======================================= script ======================================= -->
+<script>
+    $("#signUpBtn").on("click", function () {
+        event.preventDefault();
+        let nameInput = $("#nameInput").val();
+        let passInput = $("#passInput").val().split().join();
+        let passConfirm = $("#passConfirm").val();
+
+        console.log(nameInput)
+        console.log(passInput)
+
+        $.ajax({
+            type: "POST",
+            url: "/user/register",
+            data: {
+                UserName: nameInput,
+                UserPass: passInput
+            }
+        }).then(
+            function (data) {
+                console.log(data);
+            })
+
+    })
+</script>

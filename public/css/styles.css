@@ -1,0 +1,202 @@
+/* ================= nav ================= */
+
+.auth{
+  padding: 0% !important;
+}
+
+.signUp, .signIn{
+  text-align: center;
+  padding: 10% 20%;
+}
+
+.signUp{
+  border-right: 1px solid;
+}
+
+.form-group{
+  text-align: left;
+}
+
+.userStatus{
+  position: relative;
+  right: 5%;
+  top: 0;
+  margin-top: 5%;
+  text-align: right;
+}
+
+#userImg{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.header{
+  font-family: 'Anton', sans-serif;
+  font-size: 40px;
+  color: black;
+}
+
+#favPgBtn, #homePgBtn{
+  position: absolute;
+  margin: 10px;
+}
+
+.searchBy{
+  position: relative;
+  margin: 5%;
+  text-align: right;
+}
+
+.input{
+  border-radius: 25px 0 0 25px;
+}
+
+.select{
+  border-radius: 25px 0 0 25px;
+  background-color: rgb(121, 121, 121);
+  color:white;
+}
+
+#inputGame, #gameOrder{
+  width: 205px;
+  padding: 1px;
+  margin: 0 0 5px 10px;
+}
+
+#platform, #genre{
+  width: 100px;
+  padding: 1px;
+}
+
+#genre{
+  border-radius: 0;
+}
+
+#searchBtn, #sortBtn, #orderBtn{
+  margin-bottom: 5px;
+  border-radius: 0 25px 25px 0;
+  font-size: 12px;
+}
+
+.pagination{
+  margin: 15px !important;
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+
+.page-link {
+  width: 28px;
+  height: 28px;
+  font-family: 'Anton', sans-serif;
+  font-size: 90%;
+  padding: 18% 28% !important;
+  margin-left: 2px !important;
+  border-radius: 25px !important;
+  color: white !important;
+  background-color: rgb(116, 116, 116) !important;
+}
+
+/* ================= pop-up search window ================= */
+.searchStyle{
+  position: fixed;
+  float: left;
+  width: 50%;
+  height: auto;
+  top: 10%;
+  left: 20%;
+  padding: 5%;
+  text-align: center;
+  border: solid 1px;
+  border-radius: 10px;
+  color: black;
+  background: white;
+  z-index: 10;
+}
+
+/* ================= game list body ================= */
+
+.section {
+  background-image: url('./smash.jpg');
+  background-size: 100% auto;
+  padding: 1% 0
+}
+
+.transition {
+  transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+}
+.transition:hover {
+  padding: 1%;
+}
+
+#gameCard {
+  position: relative;
+  float: left;
+  padding: 10px;
+  margin: 30px;
+  margin-left: 0;
+  /* width: 220px; */
+  height: 280px;
+  font-family: 'Anton', sans-serif;
+  /* background-image: url('./true.jpg'); */
+  background-color: #ffffff;
+  background-size: 100% auto;
+  box-shadow:  5px 5px 5px 5px rgba(3, 0, 41, 0.694);
+  opacity: .9;
+}
+
+.cardBtn{
+  position: absolute;
+  text-align: center;
+  bottom: 5%;
+  left: 5%;
+  padding: 0 5% 0;
+  font-family: 'Anton', sans-serif;
+  color: black;
+  border-radius: 10px 10px 10px 0px;
+  box-shadow:  0px 0px 5px 0px rgba(3, 0, 41, 0.694);
+}
+
+.favBtn, .unFavBtn{
+  position: absolute;
+  text-align: center;
+  bottom: 5%;
+  right: 5%;
+  border-radius: 50%;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+}
+
+.home{
+  margin: 15px 0;
+}
+
+
+/* ================= card page ================= */
+
+#card-img{
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.apiImg, .apiDes{
+  position: relative;
+  float: left;
+  margin: 20px;
+}
+
+.comForm {
+  background-color: rgba(250, 230, 193, 0.3) !important;
+}
+
+.comSend {
+  margin: 0 5%;
+}
+
+

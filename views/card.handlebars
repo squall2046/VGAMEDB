@@ -1,0 +1,118 @@
+<!-- ======================================= Nav ======================================= -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="home">
+                <a href="/" class="header" style="text-decoration:none">vGame DB </a>
+                <a href="/" class="btn btn-primary" id="homePgBtn">Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================================= Body ======================================= -->
+<div class="container">
+    <!-- =========== game information =========== -->
+    <div class="row">
+        <div class="col-sm-12">
+            {{#each game}}
+            {{!-- api image --}}
+            <div class="col-sm-4 apiImg">
+                <img id="card-img" src="" alt="{{this.Name}} Cover">
+                {{!-- mysql datasets --}}
+                <div>Year of Release: {{this.Year_of_Release}}</div>
+                <div>Genre: {{this.Genre}}</div>
+                <div>Platform: {{this.Platform}}</div>
+                <div>North America Sales: {{this.NA_Sales}} </div>
+                <div>Global Sales: {{this.Global_Sales}} </div>
+                <button class="favBtn btn-danger" data-gameId="{{this.id}}" data-favSta="{{this.isFav}}">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            {{!-- api description --}}
+            <div class="col-sm-7 apiDes">
+                <h4 id="gameName"> {{this.Name}}</h4>
+                <div id="description"></div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <br><br>
+
+    <!-- ===========  comments =========== -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="comList">
+                <h3>Comments</h3>
+                <hr>
+                {{#each card}}
+                # {{inc @index}} <br>
+                "<i>{{this.Comment}}</i>" <br>
+                —— ID: <strong>{{this.User}}</strong>
+                <hr><br>
+                {{/each}}
+            </div>
+
+            <div class="comSend col-10">
+                <form>
+                    <div class="form-group">
+                        <label for="inputName">ID</label>
+                        <input type="text" class="form-control comForm" id="inputId" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCom">Message</label>
+                        <textarea class="form-control comForm" id="inputCom" rows="3"></textarea>
+                    </div>
+                    {{#each game}}
+                    <button type="submit" class="btn btn-primary mb-2" id="comBtn" data-id="{{this.id}}">Submit</button>
+                    {{/each}}
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- ======================================= footer ======================================= -->
+<footer>
+    <hr>
+    <div>Copyright &copy; 2019</div>
+</footer>
+
+<!-- ======================================= script ======================================= -->
+<script>
+    $("#comBtn").on("click", function () {
+        event.preventDefault();
+        var gameId = $(this).data("id");
+        var inputId = $("#inputId").val().trim();
+        var inputCom = $("#inputCom").val().trim();
+        if (inputId.length < 1 || inputCom.length < 1) {
+            alert("missing information")
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "/card/comment/" + gameId,
+                data: { inputId: inputId, inputCom: inputCom }
+            }).then(
+                function (data) {
+                    location.reload();
+                })
+        }
+    })
+
+    $.ajax({
+        url: "/api/key",
+        method: "GET"
+    }).then(function (apiKey) {
+        var gameName = $("#gameName").text().split(' ').join('+').slice(1);
+        var queryURL = "https://api.mobygames.com/v1/games?title=" + gameName + "&api_key=" + apiKey.key;
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            var image = $("#card-img");
+            image.attr("src", response.games[0].sample_cover.image);
+            $("#card-img").prepend(image);
+            $("#description").prepend('Description: " ' + response.games[0].description + ' "');
+        });
+    });
+</script>

@@ -1,0 +1,64 @@
+<!-- ======================================= Nav ======================================= -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="home">
+                <a href="/" class="header" style="text-decoration:none">vGame DB </a>
+                <a href="/" class="btn btn-primary" id="homePgBtn">Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================================= Body ======================================= -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {{#each fav}}
+               <div class="list-group col-lg-2 col-md-3 col-12" id="gameCard">
+                    <div class="transition">
+                        <h4>{{this.Name}}</h4>
+                        <div>Year of Release: {{this.Year_of_Release}}</div>
+                        <div>Genre: {{this.Genre}}</div>
+                        <div>Platform: {{this.Platform}}</div>
+                        <br><br><br><br><br>
+                    </div>
+                    <button class="favBtn btn-danger" data-gameId="{{this.id}}" data-favSta="{{this.isFav}}">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <a href="/card/id/{{this.GameId}}" class="cardBtn" style="text-decoration:none">More Details</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ======================================= footer ======================================= -->
+<footer>
+    <hr>
+    <div>Copyright &copy; 2019</div>
+</footer>
+
+<!-- ======================================= script ======================================= -->
+<script>
+    $(".unFavBtn").on("click", function () {
+        let gameId = $(this).data("gameid");
+        $.ajax({
+            type: "PUT",
+            url: "/favorite/remove/" + gameId,
+        }).then(
+            function (data) {
+                console.log("favorite state changed to false");
+            })
+
+        $.ajax({
+            type: "DELETE",
+            url: "/favorite/remove/" + gameId,
+            success: function (result) {
+                location.reload();
+                // alert("removed from favorite!");
+            }
+        });
+    })
+</script>
