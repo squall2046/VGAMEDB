@@ -24,6 +24,7 @@
             <div class="col-12 searchGame">
                 <!-- favorite page btn -->
                 <a href="/" class="btn btn-primary btn-sm" id="favPgBtn">Home</a>
+                <a href="/favorite" class="btn btn-primary btn-sm" id="favPgBtn">favorite</a>
 
                 <!-- search game -->
                 <input class="input" id="inputGame" type="text" placeholder="  Game Name">
@@ -86,7 +87,7 @@
             <div class="col-sm-12">
                 {{#each game}}
                 {{!-- api image --}}
-                <div class="col-sm-4 apiImg">
+                <div class="col-6 apiImg">
                     <img id="card-img" src="" alt="{{this.Name}} Cover">
                     {{!-- mysql datasets --}}
                     <div>Year of Release: {{this.Year_of_Release}}</div>
@@ -99,7 +100,7 @@
                     </button>
                 </div>
                 {{!-- api description --}}
-                <div class="col-sm-7 apiDes">
+                <div class="col-6 apiDes">
                     <h4 id="gameName"> {{this.Name}}</h4>
                     <div id="description"></div>
                 </div>
@@ -125,7 +126,7 @@
                 <div class="comSend">
                     <form>
                         <div class="form-group">
-                            <label for="inputName">ID</label>
+                            <label for="inputId">ID</label>
                             <input type="text" class="form-control comForm" id="inputId" placeholder="">
                         </div>
                         <div class="form-group">

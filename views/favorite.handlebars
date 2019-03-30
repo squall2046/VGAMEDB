@@ -83,18 +83,20 @@
     <div class="row">
         <div class="col-12 m-auto">
             {{#each fav}}
-            <div class="list-group col-lg-2 col-md-3 col-12" id="gameCard">
+            <div class="list-group col-12" id="gameCard">
                 <div class="transition">
-                    <h4>{{this.Name}}</h4>
+                    <h5>{{this.Name}}</h5>
                     <div>Year of Release: {{this.Year_of_Release}}</div>
                     <div>Genre: {{this.Genre}}</div>
                     <div>Platform: {{this.Platform}}</div>
-                    <br><br><br><br><br>
                 </div>
+
+                <a href="/card/id/{{this.GameId}}" class="cardBtn">
+                    <h6> More Details</h6>
+                </a>
                 <button class="unFavBtn btn-success" data-gameId="{{this.GameId}}" data-favSta="{{this.isFav}}">
                     <i class="fas fa-trash-restore-alt"></i>
                 </button>
-                <a href="/card/id/{{this.GameId}}" class="cardBtn">More Details</a>
             </div>
             {{/each}}
         </div>
