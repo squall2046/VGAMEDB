@@ -40,8 +40,3 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-
-
-var api_key = process.env.API_KEY
-console.log(api_key);

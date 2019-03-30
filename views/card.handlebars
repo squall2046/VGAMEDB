@@ -1,75 +1,146 @@
 <!-- ======================================= Nav ======================================= -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="home">
-                <a href="/" class="header" style="text-decoration:none">vGame DB </a>
-                <a href="/" class="btn btn-primary" id="homePgBtn">Home</a>
+{{!-- <div class="container"> --}}
+<div id="cardPage">
+    <div class="main">
+        <div class="row">
+            <div class="col-12 home">
+                <a href="/" class="header">vGame DB </a>
+                <img src="/css/vgqr.png" class="qr" alt="">
+
+                <div class="userStatus">
+                    Welcome
+                    {{#each user}}
+                    <span id="userName"></span>
+                    {{/each}}
+                    <a data-toggle="collapse" href="#userEdit"><img id="userImg" src="/css/true.jpg"></a>
+                    <div class="collapse" id="userEdit">
+                        <div id="changePass">Change Password</div>
+                        <div id="logOut">Log Out</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 searchGame">
+                <!-- favorite page btn -->
+                <a href="/" class="btn btn-primary btn-sm" id="favPgBtn">Home</a>
+
+                <!-- search game -->
+                <input class="input" id="inputGame" type="text" placeholder="  Game Name">
+                <button class="btn btn-sm btn-primary" id="searchBtn"><i class="fa fa-search"></i></button>
+                <div class="searchRes" data-show="false">
+                    <!-- search result pop-up here -->
+                </div>
+
+                <!-- bootstrap pagination -->
+                <nav aria-label="">
+                    <ul class="pagination">
+                        <li class="page-item" id="previous-page">
+                            <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- sort/order game -->
+                <div class="searchBy">
+                    <form class="orderForm">
+                        <select class="select" name="games" id="gameOrder">
+                            <option value="">&nbsp;Order by</option>
+                            <option value="yd">Year Desc</option>
+                            <option value="ya">Year Asc</option>
+                            <option value="sd">Sales Desc</option>
+                            <option value="sa">Sales Asc</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-success" id="orderBtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+
+                    <form class="sortForm">
+                        <select class="select" name="games" id="platform">
+                            <option value="">&nbsp;Platforms</option>
+                            <option value="ps4">ps4</option>
+                            <option value="xb1">XBox</option>
+                            <option value="wiiu">WiiU</option>
+                            <option value="3ds">3DS</option>
+                        </select>
+                        <select class="select" name="games" id="genre">
+                            <option value="">&nbsp;Genres</option>
+                            <option value="act">Action</option>
+                            <option value="rpg">RPG</option>
+                            <option value="spt">Sport</option>
+                            <option value="sht">Shooters</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-success" id="sortBtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- ======================================= Body ======================================= -->
-<div class="container">
-    <!-- =========== game information =========== -->
-    <div class="row">
-        <div class="col-sm-12">
-            {{#each game}}
-            {{!-- api image --}}
-            <div class="col-sm-4 apiImg">
-                <img id="card-img" src="" alt="{{this.Name}} Cover">
-                {{!-- mysql datasets --}}
-                <div>Year of Release: {{this.Year_of_Release}}</div>
-                <div>Genre: {{this.Genre}}</div>
-                <div>Platform: {{this.Platform}}</div>
-                <div>North America Sales: {{this.NA_Sales}} </div>
-                <div>Global Sales: {{this.Global_Sales}} </div>
-                <button class="favBtn btn-danger" data-gameId="{{this.id}}" data-favSta="{{this.isFav}}">
-                    <i class="fas fa-heart"></i>
-                </button>
-            </div>
-            {{!-- api description --}}
-            <div class="col-sm-7 apiDes">
-                <h4 id="gameName"> {{this.Name}}</h4>
-                <div id="description"></div>
-            </div>
-            {{/each}}
-        </div>
-    </div>
-    <br><br>
-
-    <!-- ===========  comments =========== -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="comList">
-                <h3>Comments</h3>
-                <hr>
-                {{#each card}}
-                # {{inc @index}} <br>
-                "<i>{{this.Comment}}</i>" <br>
-                —— ID: <strong>{{this.User}}</strong>
-                <hr><br>
+    <!-- ======================================= Body ======================================= -->
+    <div class="container">
+        <!-- =========== game information =========== -->
+        <div class="row">
+            <div class="col-sm-12">
+                {{#each game}}
+                {{!-- api image --}}
+                <div class="col-sm-4 apiImg">
+                    <img id="card-img" src="" alt="{{this.Name}} Cover">
+                    {{!-- mysql datasets --}}
+                    <div>Year of Release: {{this.Year_of_Release}}</div>
+                    <div>Genre: {{this.Genre}}</div>
+                    <div>Platform: {{this.Platform}}</div>
+                    <div>North America Sales: {{this.NA_Sales}} </div>
+                    <div>Global Sales: {{this.Global_Sales}} </div>
+                    <button class="favBtn btn-danger" data-gameId="{{this.id}}" data-favSta="{{this.isFav}}">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                {{!-- api description --}}
+                <div class="col-sm-7 apiDes">
+                    <h4 id="gameName"> {{this.Name}}</h4>
+                    <div id="description"></div>
+                </div>
                 {{/each}}
             </div>
-
-            <div class="comSend col-10">
-                <form>
-                    <div class="form-group">
-                        <label for="inputName">ID</label>
-                        <input type="text" class="form-control comForm" id="inputId" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputCom">Message</label>
-                        <textarea class="form-control comForm" id="inputCom" rows="3"></textarea>
-                    </div>
-                    {{#each game}}
-                    <button type="submit" class="btn btn-primary mb-2" id="comBtn" data-id="{{this.id}}">Submit</button>
-                    {{/each}}
-                </form>
-            </div>
         </div>
+        <br><br>
 
+        <!-- ===========  comments =========== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="comList">
+                    <h3>Comments</h3>
+                    <hr>
+                    {{#each card}}
+                    # {{inc @index}} <br>
+                    "<i>{{this.Comment}}</i>" <br>
+                    —— ID: <strong>{{this.User}}</strong>
+                    <hr><br>
+                    {{/each}}
+                </div>
+
+                <div class="comSend">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputName">ID</label>
+                            <input type="text" class="form-control comForm" id="inputId" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCom">Message</label>
+                            <textarea class="form-control comForm" id="inputCom" rows="3"></textarea>
+                        </div>
+                        {{#each game}}
+                        <button type="submit" class="btn btn-primary mb-2" id="comBtn"
+                            data-id="{{this.id}}">Submit</button>
+                        {{/each}}
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 <!-- ======================================= footer ======================================= -->

@@ -46,7 +46,7 @@ module.exports = function (app) {
     // order by year
     app.get("/year-desc", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            limit: 1000,
             order: [
                 ['Year_of_Release', 'DESC'],
             ],
@@ -61,7 +61,7 @@ module.exports = function (app) {
 
     app.get("/year-asc", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            limit: 1000,
             order: [
                 ['Year_of_Release', 'ASC'],
             ],
@@ -77,7 +77,7 @@ module.exports = function (app) {
     // order by sales
     app.get("/sales-desc", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            limit: 1000,
             order: [
                 ['Global_Sales', 'DESC'],
             ],
@@ -92,7 +92,7 @@ module.exports = function (app) {
 
     app.get("/sales-asc", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            limit: 1000,
             order: [
                 ['Global_Sales', 'ASC'],
             ],
@@ -108,7 +108,7 @@ module.exports = function (app) {
     // sort games by genre
     app.get("/Genre/action", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Genre: 'Action'
             },
@@ -123,7 +123,7 @@ module.exports = function (app) {
 
     app.get("/Genre/rpg", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Genre: 'Role-Playing'
             },
@@ -138,7 +138,7 @@ module.exports = function (app) {
 
     app.get("/Genre/sports", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Genre: 'Sports'
             },
@@ -153,7 +153,7 @@ module.exports = function (app) {
 
     app.get("/Genre/shooter", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Genre: 'Shooter'
             },
@@ -169,7 +169,7 @@ module.exports = function (app) {
     // sort games by platform
     app.get("/platform/ps4", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Platform: 'PS4'
             },
@@ -184,7 +184,7 @@ module.exports = function (app) {
 
     app.get("/platform/XOne", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Platform: 'XOne'
             },
@@ -199,7 +199,7 @@ module.exports = function (app) {
 
     app.get("/platform/WiiU", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Platform: 'WiiU'
             },
@@ -214,7 +214,7 @@ module.exports = function (app) {
 
     app.get("/platform/3DS", function (req, res) {
         db.Game.findAll({
-            limit: 20,
+            // limit: 1000,
             where: {
                 Platform: '3DS'
             },

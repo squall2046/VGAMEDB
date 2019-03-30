@@ -1,63 +1,70 @@
 /* ================= nav ================= */
+body{
+  background-image: url('./smash.jpg');
+  background-size: 100% auto;
+}
+.main{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 140px;
+  padding: 0 5%;
+  background-color: white;
+  z-index: 2;
+}
+
+.home{
+  margin: 10px 0 3px;
+}
+.header{
+  font-family: 'Anton', sans-serif;
+  font-size: 40px;
+  text-decoration:none !important;
+  color: black;
+}
 .qr{
-  position: absolute;
+  position: relative;
   float: left;
-  width: 75px;
-  height: 75px;
-  margin-top: 10px;
-  left: 45%;
-}
-
-.auth{
-  padding: 0% !important;
-}
-
-.signUp, .signIn{
-  text-align: center;
-  padding: 10% 20%;
-}
-
-.signUp{
-  border-right: 1px solid;
-}
-
-.form-group{
-  text-align: left;
+  width: 55px;
+  height: 55px;
 }
 
 .userStatus{
   position: relative;
-  right: 5%;
-  top: 0;
-  margin-top: 5%;
+  float: right;
   text-align: right;
+  margin-top: 10px;
 }
-
 #userImg{
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.header{
-  font-family: 'Anton', sans-serif;
-  font-size: 40px;
-  color: black;
-}
-
+/* row two */
 #favPgBtn, #homePgBtn{
-  position: absolute;
-  margin: 10px;
+  position: relative;
+  float: left;
+  margin-right: 10px;
+  top: -2px;
+}
+.input, .select{
+  position: relative;
+  float: left;
+  border-radius: 25px 0 0 25px;
 }
 
 .searchBy{
+  font-size: 10px;
   position: relative;
-  margin: 5%;
-  text-align: right;
+  float: right;
+  top:-100px;
 }
-
-.input{
-  border-radius: 25px 0 0 25px;
+@media(max-width:656px){
+  .searchBy{
+    position: absolute;
+    top: -200px;
+  }
 }
 
 .select{
@@ -66,41 +73,39 @@
   color:white;
 }
 
-#inputGame, #gameOrder{
-  width: 205px;
+#gameOrder{
+  width: 80%;
   padding: 1px;
-  margin: 0 0 5px 10px;
 }
 
 #platform, #genre{
-  width: 100px;
+  width: 40%;
   padding: 1px;
 }
-
 #genre{
   border-radius: 0;
 }
-
-#searchBtn, #sortBtn, #orderBtn{
+#searchBtn{
   margin-bottom: 5px;
   border-radius: 0 25px 25px 0;
-  font-size: 12px;
+  font-size: 13px;
 }
-
+#sortBtn, #orderBtn{
+  margin-bottom: 5px;
+  border-radius: 0 25px 25px 0;
+  font-size: 6px;
+}
 .pagination{
-  margin: 15px !important;
   position: relative;
-  left: 0;
-  bottom: 0;
+  margin-top:20px;
 }
-
 .page-link {
   width: 28px;
   height: 28px;
   font-family: 'Anton', sans-serif;
   font-size: 90%;
   padding: 18% 28% !important;
-  margin-left: 2px !important;
+  margin-left: 1px !important;
   border-radius: 25px !important;
   color: white !important;
   background-color: rgb(116, 116, 116) !important;
@@ -125,10 +130,12 @@
 
 /* ================= game list body ================= */
 
-.section {
-  background-image: url('./smash.jpg');
-  background-size: 100% auto;
-  padding: 1% 0
+.container {
+  /* background-image: url('./smash.jpg'); */
+  /* background-color: rgba(255, 255, 255); */
+  margin-top:140px;
+  padding: 1% 0;
+  height: auto;
 }
 
 .transition {
@@ -143,7 +150,7 @@
   float: left;
   padding: 10px;
   margin: 30px;
-  margin-left: 0;
+  margin-left: 0px;
   /* width: 220px; */
   height: 280px;
   font-family: 'Anton', sans-serif;
@@ -161,6 +168,7 @@
   left: 5%;
   padding: 0 5% 0;
   font-family: 'Anton', sans-serif;
+  text-decoration:none;
   color: black;
   border-radius: 10px 10px 10px 0px;
   box-shadow:  0px 0px 5px 0px rgba(3, 0, 41, 0.694);
@@ -177,37 +185,63 @@
   border-radius: 50%;
 }
 
+.backHome{
+  margin-bottom: 50px;
+  margin-left: 47%
+}
 footer {
   text-align: center;
   padding: 15px;
 }
 
-.home{
-  margin: 15px 0;
-}
 
 
 /* ================= card page ================= */
 
-#card-img{
+#cardPage {
+  background-color: rgb(255, 255, 255);
+}
+
+#card-img {
   width: 300px;
   height: 300px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
-.apiImg, .apiDes{
+.apiImg, .apiDes {
+  height: 500px;
+  overflow: auto;
   position: relative;
   float: left;
   margin: 20px;
+  background: rgb(255, 255, 255, .9);
 }
 
 .comForm {
   background-color: rgba(250, 230, 193, 0.3) !important;
 }
 
-.comSend {
+.comList, .comSend {
+  background: rgb(255, 255, 255, .9);
   margin: 0 5%;
 }
 
 
+/* user page */
+.auth{
+  padding: 0% !important;
+}
+
+.signUp, .signIn{
+  text-align: center;
+  padding: 10% 20%;
+}
+
+.signUp{
+  border-right: 1px solid;
+}
+
+.form-group{
+  text-align: left;
+}
