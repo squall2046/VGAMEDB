@@ -14,7 +14,7 @@ $(document).ready(function () {
         } else {
             $.get("/input/" + input).then(function (data) {
                 $(".searchRes").html(
-                    '<div class="searchStyle">' +
+                    '<div class="col-12 mx-auto" id="searchStyle">' +
                     '<h6>Game Name: ' + data.Name + '</h6>' +
                     '<p>Game Platform: ' + data.Platform + '</p>' +
                     '<p>Year_of_Release: ' + data.Year_of_Release + '</p>' +
@@ -25,8 +25,8 @@ $(document).ready(function () {
                     '<button class="favBtn btn-danger" data-gameId="' + data.id +
                     '" data-favSta="' + data.isFav + '"><i class="fas fa-heart"></i></button>' +
                     '<div class="cta-container transition"><a href="/card/id/' + data.id +
-                    '" class="cta cardBtn">More Details</a></div>' +
-                    '<button class="btn btn-primary" id="searchOff"> Close </button>' +
+                    '" class="cta cardBtnTwo">More Details</a></div>' +
+                    '<button class="btn btn-sm btn-secondary" id="searchOff"> Close </button>' +
                     '</div>'
                 );
 

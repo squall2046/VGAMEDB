@@ -7,7 +7,7 @@ body{
   position: fixed;
   top: 0;
   width: 100%;
-  height: 140px;
+  height: 100px;
   padding: 0 5%;
   background-color: white;
   z-index: 2;
@@ -18,6 +18,8 @@ body{
   margin: 10px 0 3px;
 }
 .header{
+  position: relative;
+  float: left;
   font-family: 'Anton', sans-serif;
   font-size: 40px;
   text-decoration:none !important;
@@ -31,8 +33,9 @@ body{
 }
 
 .userStatus{
-  position: relative;
-  float: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #userImg{
@@ -45,12 +48,20 @@ body{
 #favPgBtn, #homePgBtn{
   position: relative;
   float: left;
-  margin-right: 10px;
-  top: -2px;
+  margin-left: 10px;
+  top: 15px;
 }
 
-#inputGame{
-height: 70%;
+.searchBy{
+  position: fixed;
+  top: 20px;
+  right: 50px;
+  font-size: 10px;
+}
+@media(max-width:656px){
+  .searchBy{
+    top: -2000px;
+  }
 }
 
 .input, .select{
@@ -59,31 +70,13 @@ height: 70%;
   border-radius: 25px 0 0 25px;
 }
 
-.searchGame {
-  height: 40px;
-}
-
-.searchBy{
-  font-size: 10px;
-  position: relative;
-  float: right;
-  top:-80px;
-  right: -5px;
-}
-@media(max-width:656px){
-  .searchBy{
-    position: absolute;
-    top: -200px;
-  }
-}
 
 .select{
-  border-radius: 25px 0 0 25px;
   background-color: rgb(121, 121, 121);
   color:white;
 }
 
-#gameOrder{
+#inputGame, #gameOrder{
   width: 80%;
   padding: 1px;
 }
@@ -95,19 +88,15 @@ height: 70%;
 #genre{
   border-radius: 0;
 }
-#searchBtn{
+
+#searchBtn, #sortBtn, #orderBtn{
   margin-bottom: 5px;
   border-radius: 0 25px 25px 0;
-  font-size: 12px;
-}
-#sortBtn, #orderBtn{
-  margin-bottom: 5px;
-  border-radius: 0 25px 25px 0;
-  font-size: 6px;
+  font-size: 6.5px;
 }
 .pagination{
   position: relative;
-  margin-top: 2px;
+  margin-top: -5px;
 }
 .page-link {
   width: 28px;
@@ -122,16 +111,14 @@ height: 70%;
 }
 
 /* ================= pop-up search window ================= */
-.searchStyle{
+#searchStyle{
   position: fixed;
-  float: left;
   width: 50%;
   height: auto;
-  top: 10%;
-  left: 20%;
+  top: 20%;
+  left: 25%;
   padding: 5%;
   text-align: center;
-  border: solid 1px;
   border-radius: 10px;
   color: black;
   background: white;
@@ -159,7 +146,7 @@ height: 70%;
   position: relative;
   float: left;
   padding: 10px 20px;
-  margin: 10px 0 0;
+  margin: 5px 0 0;
   /* width: 220px; */
   height: 100px;
   font-family: 'Anton', sans-serif;
@@ -174,18 +161,33 @@ height: 70%;
 #gameCard:hover {
   /* margin-left: 5px; */
   padding-left: 25px;
+  background-color: #bdbdbd;
+
 }
 
 .cardBtn{
   position: absolute;
   top: 15%;
   right: 2%;
-  padding: 0% 5%;
+  padding: .1% 5%;
   font-family: 'Anton', sans-serif;
   text-align: center;
   text-decoration:none !important;
   color: black;
   border-radius: 10px 0px 10px 10px;
+  box-shadow:  0px 0px 5px 0px rgba(3, 0, 41, 0.694);
+}
+
+.cardBtnTwo {
+  position: absolute;
+  left: 2%;
+  bottom: 5%;
+  padding: .5% 5%;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  text-decoration:none !important;
+  color: black;
+  border-radius: 10px;
   box-shadow:  0px 0px 5px 0px rgba(3, 0, 41, 0.694);
 }
 
@@ -201,7 +203,7 @@ height: 70%;
 }
 
 .backHome{
-  margin-bottom: 50px;
+  margin: 50px;
   margin-left: 47%
 }
 footer {

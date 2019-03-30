@@ -4,35 +4,15 @@
     <div class="main">
         <div class="row">
             <div class="col-12 home">
-                <a href="/" class="header">vGame DB </a>
                 <img src="/css/vgqr.png" class="qr" alt="">
+                <a href="/" class="header">vGame DB </a>
+                <!-- favorite page btn -->
+                <a href="/favorite" class="btn btn-danger btn-sm" id="favPgBtn">favorite</a>
 
-                <div class="userStatus">
-                    Welcome
-                    {{#each user}}
-                    <span id="userName"></span>
-                    {{/each}}
-                    <a data-toggle="collapse" href="#userEdit"><img id="userImg" src="/css/true.jpg"></a>
-                    <div class="collapse" id="userEdit">
-                        <div id="changePass">Change Password</div>
-                        <div id="logOut">Log Out</div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 searchGame">
-                <!-- favorite page btn -->
-                <a href="/" class="btn btn-primary btn-sm" id="favPgBtn">Home</a>
-                <a href="/favorite" class="btn btn-primary btn-sm" id="favPgBtn">favorite</a>
-
-                <!-- search game -->
-                <input class="input" id="inputGame" type="text" placeholder="  Game Name">
-                <button class="btn btn-sm btn-primary" id="searchBtn"><i class="fa fa-search"></i></button>
-                <div class="searchRes" data-show="false">
-                    <!-- search result pop-up here -->
-                </div>
-
+            <div class="col-12">
                 <!-- bootstrap pagination -->
                 <nav aria-label="">
                     <ul class="pagination">
@@ -42,8 +22,15 @@
                     </ul>
                 </nav>
 
-                <!-- sort/order game -->
                 <div class="searchBy">
+                    <!-- search game name -->
+                    <input class="input" id="inputGame" type="text" placeholder="  Game Name">
+                    <button class="btn btn-sm btn-primary" id="searchBtn"><i class="fa fa-search"></i></button>
+                    <div class="searchRes" data-show="false">
+                        <!-- search result pop-up here -->
+                    </div>
+
+                    <!-- sort/order game -->
                     <form class="orderForm">
                         <select class="select" name="games" id="gameOrder">
                             <option value="">&nbsp;Order by</option>
