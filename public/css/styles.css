@@ -161,7 +161,8 @@ body{
 #gameCard:hover {
   /* margin-left: 5px; */
   padding-left: 25px;
-  background-color: #bdbdbd;
+  background-color: #a09f9f;
+  color: white
 
 }
 
@@ -217,6 +218,10 @@ footer {
 
 #cardPage {
   background-color: rgb(255, 255, 255);
+}
+
+#card-container {
+  margin-top:100px;
 }
 
 .apiImg, .apiDes {
