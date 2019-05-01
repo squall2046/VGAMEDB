@@ -2,8 +2,8 @@
 
 An app saved more than 16,000 video games information since 1984 in database. 
 -	Users can search every game’s Year of Release, Genre, Platform, Global Sales, Game Description.
--	API load games Cover Image and show the images when available.
 -	VGAMEDB support to checking games by sorting and ordering.
+-	API load games Cover Image and show the images when available.
 -	Users can also save their favorites games and leave comments.
 
 #### 👾 Home page & Saved page
