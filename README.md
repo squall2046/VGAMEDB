@@ -6,9 +6,17 @@ An app saved more than 16,000 video games information since 1984 in database.
 -	VGAMEDB support to checking games by sorting and ordering.
 -	Users can also save their favorites games and leave comments.
 
-#### 👾 saved page
-![concert](./client/public/Snipaste_2019-04-12_12-49-58.png)
+#### 👾 Home page & Saved page
+![concert](./public/Snipaste_2019-05-01_15-53-47.png)
+![concert](./public/Snipaste_2019-05-01_15-54-09.png)
 
+#### 👾 Sort/Order & Search
+![concert](./public/Snipaste_2019-05-01_15-54-28.png)
+![concert](./public/Snipaste_2019-05-01_15-55-24.png)
+
+#### 👾 API image, description  &  Comments
+![concert](./public/Snipaste_2019-05-01_15-56-07.png)
+![concert](./public/Snipaste_2019-05-01_15-59-05.png)
 #### 👾 Technologies
 - [x] MySql
 - [x] Sequelize ORM
